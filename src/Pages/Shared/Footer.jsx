@@ -7,21 +7,27 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-gray-100 p-8">
-      <div className="container mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-8">
+    <footer className="bg-gray-100 p-12">
+      <div className="container mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-8 font-serif">
         {/* 1st Column */}
         <div>
           <div className="flex items-center mb-2">
             <img src={logo} alt="Website Logo" className="h-24 w-24 mr-2" />
-            <h1 className="text-red-500 text-lg font-bold -ml-4 -mt-3">
+            <h1 className="text-red-500 text-2xl font-bold font-mono -ml-4 -mt-3">
               VroomVroom
             </h1>
           </div>
-          <p className="text-gray-500 mb-2">Address Line 1, City, State, ZIP</p>
-          <p className="text-gray-500 mb-4">Email: info@vroomvroomtoys.com</p>
+          <p className="text-gray-500 mb-2">
+            <span className="text-base font-bold text-gray-700">Address:</span>{" "}
+            Line 1, City, State, ZIP
+          </p>
+          <p className="text-gray-500 mb-4">
+            <span className="text-base font-bold text-gray-700">Email:</span>{" "}
+            info@vroomvroomtoys.com
+          </p>
           <div className="flex space-x-4">
             <Link>
-              <button className="btn btn-circle btn-outline bg-fuchsia-300 border-none">
+              <button className="btn btn-circle btn-outline bg-fuchsia-300 hover:bg-red-400 border-none">
                 <FaFacebook />
               </button>
             </Link>
@@ -83,7 +89,7 @@ const Footer = () => {
 
         {/* 4th Column */}
         <div>
-          <h2 className="text-black font-bold mb-4 border-b w-32 border-gray-600 pb-2">
+          <h2 className="text black font-bold mb-4 border-b w-32 border-gray-600 pb-2">
             Help
           </h2>
           <ul className="text-gray-500 space-y-2">
@@ -98,8 +104,9 @@ const Footer = () => {
       </div>
       <div className="divider"></div>
       <div className="container mx-auto text-center text-gray-500 text-sm">
-        <p>&copy; {currentYear} VroomVroomToys. All rights reserved.</p>
+        <p>© {currentYear} VroomVroomToys. All rights reserved.</p>
       </div>
+      
     </footer>
   );
 };
