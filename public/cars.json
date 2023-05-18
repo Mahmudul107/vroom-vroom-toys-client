@@ -1,0 +1,129 @@
+[
+    {
+      "id": 1,
+      "name": "Classic Red Roadster",
+      "description": "A sleek and stylish red roadster toy car with vintage design.",
+      "image": "https://images.unsplash.com/photo-1625673277998-052c50a49cf6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
+      "price": 19.99,
+      "manufacturer": "Toy Motors",
+      "year": 2020
+    },
+    {
+      "id": 2,
+      "name": "Off-Road Adventure SUV",
+      "description": "An off-road SUV toy car built for rugged terrains and thrilling adventures.",
+      "image": "https://images.unsplash.com/photo-1595079755565-df3e37b85214?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
+      "price": 24.99,
+      "manufacturer": "Adventure Toys Inc.",
+      "year": 2021
+    },
+    {
+      "id": 3,
+      "name": "Speedy Blue Racecar",
+      "description": "A high-speed racecar toy with a vibrant blue color and aerodynamic design.",
+      "image": "https://images.unsplash.com/photo-1544976494-f02017dac3ca?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
+      "price": 14.99,
+      "manufacturer": "Velocity Toys",
+      "year": 2019
+    },
+    {
+      "id": 4,
+      "name": "City Police Cruiser",
+      "description": "A police cruiser toy car with working lights and sirens for exciting pretend play.",
+      "image": "https://images.unsplash.com/photo-1508896694512-1eade558679c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
+      "price": 29.99,
+      "manufacturer": "Toyland Police",
+      "year": 2022
+    },
+    {
+      "id": 5,
+      "name": "Convertible Pink Beetle",
+      "description": "A cute pink beetle toy car with a convertible top for sunny drives.",
+      "image": "https://images.unsplash.com/photo-1532330393533-443990a51d10?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
+      "price": 17.99,
+      "manufacturer": "Pink Wheels",
+      "year": 2020
+    },
+    {
+        "id": 6,
+        "name": "Monster Truck Madness",
+        "description": "A large and powerful monster truck toy car for smashing through obstacles.",
+        "image": "https://images.unsplash.com/photo-1612455677448-57b4059c8e42?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1332&q=80",
+        "price": 34.99,
+        "manufacturer": "Mega Wheels",
+        "year": 2023
+      },
+      {
+        "id": 7,
+        "name": "Fire Rescue Truck",
+        "description": "A fire rescue truck toy with extendable ladder and realistic sound effects.",
+        "image": "https://images.unsplash.com/photo-1616850508572-8b22fb1e38c1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
+        "price": 27.99,
+        "manufacturer": "Rescue Heroes",
+        "year": 2022
+      },
+      {
+        "id": 8,
+        "name": "Vintage Yellow Taxi",
+        "description": "A vintage-style yellow taxi toy car with intricate detailing and opening doors.",
+        "image": "https://images.unsplash.com/photo-1630740281980-fbe4ff28a849?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
+        "price": 21.99,
+        "manufacturer": "Retro Toys",
+        "year": 2018
+      },
+      {
+        "id": 9,
+        "name": "Sports Coupe GT",
+        "description": "A sporty coupe toy car with a glossy finish and realistic engine sounds.",
+        "image": "https://images.unsplash.com/photo-1616850508990-0e9e15731b18?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
+        "price": 31.99,
+        "manufacturer": "Speedster Toys",
+        "year": 2021
+      },
+      {
+        "id": 10,
+        "name": "Construction Bulldozer",
+        "description": "A sturdy construction bulldozer toy with movable blade and construction worker figurine.",
+        "image": "https://images.unsplash.com/photo-1534732806146-b3bf32171b48?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80",
+        "price": 18.99,
+        "manufacturer": "Build-it Toys",
+        "year": 2020
+      },
+      {
+        "id": 11,
+        "name": "Racing Rally Car",
+        "description": "A racing rally car toy with colorful decals and adjustable spoiler for maximum speed.",
+        "image": "https://images.unsplash.com/photo-1536846511313-4b07b637bff9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
+        "price": 23.99,
+        "manufacturer": "SpeedX",
+        "year": 2019
+      },
+      {
+        "id": 12,
+        "name": "Pink Princess Carriage",
+        "description": "A magical pink princess carriage toy with glittery details and a princess doll.",
+        "image": "https://images.unsplash.com/photo-1632435285572-4fdea52e4e86?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
+        "price": 39.99,
+        "manufacturer": "Enchanted Toys",
+        "year": 2022
+      },
+      {
+        "id": 13,
+        "name": "School Bus Adventure",
+        "description": "A school bus toy with opening doors, removable seats, and school children figures.",
+        "image": "https://images.unsplash.com/photo-1594787826350-19386fdb2363?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
+        "price": 28.99,
+        "manufacturer": "Playtime Vehicles",
+        "year": 2021
+      },
+      {
+        "id": 14,
+        "name": "Formula One Racer",
+        "description": "A sleek and fast formula one racer toy car for high-speed racing action.",
+        "image": "https://images.unsplash.com/photo-1570619367330-f794786ab176?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80",
+        "price": 26.99,
+        "manufacturer": "Speed Circuit",
+        "year": 2023
+      }
+  ]
+  
