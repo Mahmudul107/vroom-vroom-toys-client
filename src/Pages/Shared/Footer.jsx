@@ -18,11 +18,11 @@ const Footer = () => {
             </h1>
           </div>
           <p className="text-gray-500 mb-2">
-            <span className="text-base font-bold text-gray-700">Address:</span>{" "}
+            <span className="text-sm font-bold text-gray-700">Address:</span>{" "}
             Line 1, City, State, ZIP
           </p>
           <p className="text-gray-500 mb-4">
-            <span className="text-base font-bold text-gray-700">Email:</span>{" "}
+            <span className="text-sm font-bold text-gray-700">Email:</span>{" "}
             info@vroomvroomtoys.com
           </p>
           <div className="flex space-x-4">
@@ -47,7 +47,7 @@ const Footer = () => {
 
         {/* 2nd Column */}
         <div>
-          <h2 className="text-black font-bold mb-4 border-b w-32 border-gray-600 pb-2">
+          <h2 className="text-black text-sm font-bold mb-4 border-b w-32 border-gray-600 pb-2">
             VroomVroom
           </h2>
           <ul className="text-gray-500 space-y-2">
@@ -68,7 +68,7 @@ const Footer = () => {
 
         {/* 3rd Column */}
         <div>
-          <h2 className="text-black font-bold mb-4 border-b w-32 border-gray-600 pb-2">
+          <h2 className="text-black text-sm font-bold mb-4 border-b w-32 border-gray-600 pb-2">
             Explore
           </h2>
           <ul className="text-gray-500 space-y-2">
@@ -89,7 +89,7 @@ const Footer = () => {
 
         {/* 4th Column */}
         <div>
-          <h2 className="text black font-bold mb-4 border-b w-32 border-gray-600 pb-2">
+          <h2 className="text-sm black font-bold mb-4 border-b w-32 border-gray-600 pb-2">
             Help
           </h2>
           <ul className="text-gray-500 space-y-2">
@@ -102,8 +102,8 @@ const Footer = () => {
           </ul>
         </div>
       </div>
-      <div className="divider"></div>
-      <div className="container mx-auto text-center text-gray-500 text-sm">
+      <div className="divider mt-10"></div>
+      <div className="container mx-auto text-center mt-7 text-gray-500 text-sm">
         <p>© {currentYear} VroomVroomToys. All rights reserved.</p>
       </div>
       
