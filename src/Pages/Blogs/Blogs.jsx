@@ -87,7 +87,8 @@ const Blogs = () => {
                 <span className="text-xl font-bold italic bg-yellow-400 p-1 rounded-lg">
                   Ans:
                 </span>
-                <span className=""></span> <br /><br />
+                <span className=""></span> <br />
+                <br />
                 Express.js is a flexible framework for building web servers and
                 APIs, while Next.js is a React framework specifically designed
                 for server-side rendering and static site generation, providing
@@ -108,13 +109,18 @@ const Blogs = () => {
               <p className="ml-16 text-md bg-green-700 rounded-lg p-8 text-white font-semibold secondary">
                 <span className="text-xl font-bold italic bg-yellow-400 p-1 rounded-lg">
                   Ans:
-                </span> <br /><br />
-                MongoDB's aggregate is a feature that allows advanced data analysis by combining multiple stages in a pipeline. Each stage performs specific operations like filtering, grouping, sorting, and calculations. It enables extraction of meaningful insights and manipulation of data. The aggregation pipeline acts as a series of steps that transform input data, apply operations at each stage, and produce desired output. It provides a flexible and efficient way to aggregate and analyze data within MongoDB, enhancing data processing capabilities.
-
-
-
-
-
+                </span>{" "}
+                <br />
+                <br />
+                MongoDB's aggregate is a feature that allows advanced data
+                analysis by combining multiple stages in a pipeline. Each stage
+                performs specific operations like filtering, grouping, sorting,
+                and calculations. It enables extraction of meaningful insights
+                and manipulation of data. The aggregation pipeline acts as a
+                series of steps that transform input data, apply operations at
+                each stage, and produce desired output. It provides a flexible
+                and efficient way to aggregate and analyze data within MongoDB,
+                enhancing data processing capabilities.
               </p>
             </div>
           </div>
