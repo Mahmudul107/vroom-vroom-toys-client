@@ -1,11 +1,17 @@
-import React, { useEffect, useState } from "react";
-import { FaDollarSign, FaStar } from "react-icons/fa";
+import React, { useContext, useEffect, useState } from "react";
 import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
-import RatingStars from "react-rating-stars-component";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { toast } from "react-toastify";
+import { AuthContext } from "../../../providers/AuthProviders";
+import { useNavigate } from "react-router-dom";
 
 const ShopCategory = () => {
+  const { user } = useContext(AuthContext);
   const [toyCars, setToyCars] = useState([]);
+  
+  const navigate = useNavigate()
 
   useEffect(() => {
     const fetchToyCars = async () => {
@@ -13,6 +19,7 @@ const ShopCategory = () => {
         const response = await fetch("toyCars.json");
         const data = await response.json();
         setToyCars(data);
+        
       } catch (error) {
         console.error("Error fetching car data:", error);
       }
@@ -21,9 +28,19 @@ const ShopCategory = () => {
     fetchToyCars();
   }, []);
 
+  const handleViewDetails = () => {
+    if (!user) {
+      toast.error("You have to log in first to view details");
+     
+     } else {
+     }
+  };
+
   return (
     <div className="p-4 max-w-[1400px] mx-auto">
-      <h2 className="text-5xl font-bold font-mono mb-20 text-center divider text-red-500">Shop By Category Page</h2>
+      <h2 className="text-5xl font-bold font-mono mb-20 text-center divider text-red-500">
+        Shop By Category Page
+      </h2>
 
       {toyCars.length > 0 && (
         <Tabs>
@@ -46,7 +63,9 @@ const ShopCategory = () => {
                     key={toy.id}
                     className="max-w-xl rounded overflow-hidden shadow-lg m-4"
                   >
-                    <div className={`card card-compact bg-base-100 shadow-xl duration-500 hover:bg-fuchsia-200`}>
+                    <div
+                      className={`card card-compact bg-base-100 shadow-xl duration-500 hover:bg-fuchsia-200`}
+                    >
                       <figure>
                         <img
                           src={toy.picture}
@@ -68,12 +87,17 @@ const ShopCategory = () => {
                         </p>
                         <div className="flex">
                           <div className="mt-4">
-                            <span className="font-semibold mr-2 ">Rating: </span>
+                            <span className="font-semibold mr-2 ">
+                              Rating:{" "}
+                            </span>
                             {toy.rating}
                           </div>
                         </div>
                       </div>
-                      <button className=" text-white transition ease-in-out delay-150 bg-red-400 hover:-translate-y-1 hover:scale-110 hover:bg-fuchsia-500 duration-500 px-5 py-3 rounded-xl w-1/2 mb-6 ml-4">
+                      <button
+                        className="text-white transition ease-in-out delay-150 bg-red-400 hover:-translate-y-1 hover:scale-110 hover:bg-fuchsia-500 duration-500 px-5 py-3 rounded-xl w-1/2 mb-6 ml-4"
+                        onClick={handleViewDetails}
+                      >
                         View Details
                       </button>
                     </div>
@@ -84,6 +108,8 @@ const ShopCategory = () => {
           ))}
         </Tabs>
       )}
+
+      <ToastContainer />
     </div>
   );
 };
