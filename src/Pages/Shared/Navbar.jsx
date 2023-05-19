@@ -6,7 +6,6 @@ import { FaUser } from "react-icons/fa";
 
 const Navbar = () => {
   const { user, logOutUser } = useContext(AuthContext);
-  const [showMenu, setShowMenu] = useState(false);
 
   const handleLogout = () => {
     logOutUser()
@@ -52,23 +51,19 @@ const Navbar = () => {
       <li className="hover:text-red-400 hover:underline duration-500 relative">
         <Link to="/about">All Toys</Link>
       </li>
-      <li className="hover:text-red-400 hover:underline duration-500 relative">
-        <Link to="/services">My Toys</Link>
-      </li>
-      <li className="hover:text-red-400 hover:underline duration-500 relative">
-        <Link to="/services">Add A Toy</Link>
-      </li>
+      {user && (
+        <>
+          <li className="hover:text-red-400 hover:underline duration-500 relative">
+            <Link to="/services">My Toys</Link>
+          </li>
+          <li className="hover:text-red-400 hover:underline duration-500 relative">
+            <Link to="/services">Add A Toy</Link>
+          </li>
+        </>
+      )}
       <li className="hover:text-red-400 hover:underline duration-500 ease-in relative">
         <Link to="blogs">Blogs</Link>
       </li>
-      {/* {user?.email ? (
-        <>
-          <Link to="/bookings">My Bookings</Link>
-          <Link onClick={handleLogout}>Log Out</Link>
-        </>
-      ) : (
-        <Link to="login">Login</Link>
-      )} */}
     </>
   );
 
@@ -117,7 +112,7 @@ const Navbar = () => {
           {user && (
             <Link
               onClick={handleLogout}
-              className="bg-red-600 hover:bg-red-400 duration-700 ml-2 text-white font-bold py-2 px-4 rounded-3xl"
+              className="bg-fuchsia-600 hover:bg-red-400 duration-700 ml-2 text-white font-bold py-2 px-4 rounded-3xl"
             >
               Logout
             </Link>
