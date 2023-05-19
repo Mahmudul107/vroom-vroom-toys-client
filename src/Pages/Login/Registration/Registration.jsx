@@ -12,10 +12,11 @@ const Registration = () => {
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState({});
   const [isRegistered, setIsRegistered] = useState(false); // state for success message
+  const [userExistsError, setUserExistsError] = useState(false); // state for user existence error
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Add your login logic here
+  
     console.log(email, password, name, photoUrl);
 
     createUser(email, password)
@@ -45,12 +46,16 @@ const Registration = () => {
       return;
     }
 
+    setErrors({});
+    setUserExistsError(false);
+
     // Check if the user with the same email already exists
     const existingUser = checkIfUserExists(email);
 
     if (existingUser) {
       newErrors.email = "An account with this email already exists";
       setErrors(newErrors);
+      setUserExistsError(true); // Set the userExistsError state to true
       return;
     }
   };
@@ -115,7 +120,6 @@ const Registration = () => {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               className="w-[500px] p-3 border-2 border-gray-300 rounded-lg"
-              required
             />
             {errors.email && (
               <span className="text-red-500 text-xs">{errors.email}</span>
@@ -130,21 +134,25 @@ const Registration = () => {
               onChange={(e) => setPassword(e.target.value)}
               required
             />
-            {errors.email && (
-    <span className="text-red-500 text-xs">{errors.email}</span>
-  )}
+            {errors.password && (
+              <span className="text-red-500 text-xs">{errors.password}</span>
+            )}
             <button
               type="submit"
               className="bg-blue-500 text-white py-3 px-10 rounded-lg shadow-md hover:bg-blue-600 transition-colors duration-300"
             >
               Register
             </button>
-
+            {userExistsError && (
+              <span className="text-red-500 text-xs">
+                An account with this email already exists.
+              </span>
+            )}
           </form>
         </div>
       </div>
       <p className="text-lg my-10 font-bold text-center">
-        Already have an account ? please{" "}
+        Already have an account? Please{" "}
         <Link to="/login" className="text-red-500 hover:underline font-bold">
           Login
         </Link>
