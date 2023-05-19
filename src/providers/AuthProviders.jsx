@@ -26,41 +26,35 @@ const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
 
-
-//   Google sign In 
+  //   Google sign In
   const googleSign = () => {
     return signInWithPopup(auth, googleProvider);
   };
 
-
-//   Github sign in
+  //   Github sign in
   const githubSign = () => {
     return signInWithPopup(auth, githubProvider);
   };
 
-
-//   Create a user account
+  //   Create a user account
   const createUser = (email, password) => {
     setLoading(true);
     return createUserWithEmailAndPassword(auth, email, password);
   };
 
-
-//   Signed in user
+  //   Signed in user
   const signInUser = (email, password) => {
     setLoading(true);
     return signInWithEmailAndPassword(auth, email, password);
   };
 
-
-//   Logout user
+  //   Logout user
   const logOutUser = () => {
     setLoading(true);
     return signOut(auth);
   };
 
-
-// Get users profile
+  // Get users profile
   const updateUserData = (user, name, photo) => {
     return updateProfile(user, {
       displayName: name,

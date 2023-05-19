@@ -1,8 +1,11 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import Banner from "../Banner/Banner";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../../providers/AuthProviders";
 
 const Registration = () => {
+    const { createUser, updateUserData } = useContext(AuthContext);
+
   const [name, setName] = useState("");
   const [photoUrl, setPhotoUrl] = useState("");
   const [email, setEmail] = useState("");
@@ -12,6 +15,16 @@ const Registration = () => {
     e.preventDefault();
     // Add your login logic here
     console.log(email, password, name, photoUrl);
+
+    createUser( email, password)
+    .then( result => {
+        const createdUser = result.user;
+        console.log(createdUser)
+
+    })
+    .catch(err => {
+        console.error(err);
+    })
   };
 
   return (
@@ -74,7 +87,7 @@ const Registration = () => {
               type="submit"
               className="bg-blue-500 text-white py-3 px-10 rounded-lg shadow-md hover:bg-blue-600 transition-colors duration-300"
             >
-              Log in
+              Register
             </button>
           </form>
         </div>

@@ -1,23 +1,40 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { FaGoogle, FaGithub } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import Banner from "./Banner/Banner";
+import { AuthContext } from "../../providers/AuthProviders";
 
 const Login = () => {
+  const { signInUser, googleSign, githubSign } = useContext(AuthContext);
+  const navigate = useNavigate()
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
     // Add your login logic here
     console.log(email, password);
+
+    signInUser(email, password)
+      .then((result) => {
+        const loggedInUser = result.user;
+        console.log(loggedInUser);
+        setError('')
+        navigate('/')
+      })
+      .catch((err) => {
+        console.error(err);
+        setError('Invalid Email or Password. Please try again.')
+      });
   };
 
   return (
     <div>
       <div className="flex items-center justify-center">
-        <Banner/>
+        <Banner />
         <div className="p-6 rounded-lg ">
           <h2 className="text-3xl font-semibold mb-3 mt-12">Login Here</h2>
           <h4 className="text-gray-600 font-semibold text-base mb-8">
@@ -53,6 +70,7 @@ const Login = () => {
             >
               Log in
             </button>
+            {error && <p className="text-warning">{error}</p>}
           </form>
           <div className="mt-10 text-center">
             <p className="text-lg">Or sign up using:</p>
@@ -69,7 +87,10 @@ const Login = () => {
       </div>
       <p className="text-lg my-10 font-bold text-center">
         Already have an account ? please{" "}
-        <Link to="/registration" className="text-red-500 hover:underline font-bold">
+        <Link
+          to="/registration"
+          className="text-red-500 hover:underline font-bold"
+        >
           Register
         </Link>
       </p>
