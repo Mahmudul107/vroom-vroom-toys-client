@@ -9,13 +9,82 @@ const Registration = () => {
   const [password, setPassword] = useState("");
 
   const handleSubmit = (e) => {
+    e.preventDefault();
     // Add your login logic here
     console.log(email, password, name, photoUrl);
   };
 
   return (
     <div>
-      
+      <div className="flex items-center justify-center">
+        <Banner />
+        <div className="p-6 rounded-lg ">
+          <h2 className="text-3xl font-semibold mb-3 mt-12">
+            Registration Here
+          </h2>
+          <h4 className="text-gray-600 font-semibold text-base mb-8">
+            Sign Up to try our amazing services
+          </h4>
+          <form
+            onSubmit={handleSubmit}
+            className="flex flex-col space-y-4 my-auto "
+          >
+            <h2 className="text-xl font-semibold">Your Name</h2>
+            <input
+              type="text"
+              name="name"
+              placeholder="Enter Your name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              className="w-[500px] p-3 border-2 border-gray-300 rounded-lg"
+              required
+            />
+            <h2 className="text-xl font-semibold">Photo URL</h2>
+            <input
+              type="text"
+              name="photo"
+              placeholder="Upload your photo"
+              value={photoUrl}
+              onChange={(e) => setPhotoUrl(e.target.value)}
+              className="w-[500px] p-3 border-2 border-gray-300 rounded-lg"
+              required
+            />
+
+            <h2 className="text-xl font-semibold">Email Address</h2>
+            <input
+              type="email"
+              name="email"
+              placeholder="Enter Your Email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              className="w-[500px] p-3 border-2 border-gray-300 rounded-lg"
+              required
+            />
+            <h2 className="text-xl font-semibold">Password</h2>
+            <input
+              type="password"
+              name="password"
+              placeholder="Enter Password"
+              value={password}
+              className="w-[500px] p-3 border-2 border-gray-300 rounded-lg"
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
+            <button
+              type="submit"
+              className="bg-blue-500 text-white py-3 px-10 rounded-lg shadow-md hover:bg-blue-600 transition-colors duration-300"
+            >
+              Log in
+            </button>
+          </form>
+        </div>
+      </div>
+      <p className="text-lg my-10 font-bold text-center">
+        Already have an account ? please{" "}
+        <Link to="/login" className="text-red-500 hover:underline font-bold">
+          Login
+        </Link>
+      </p>
     </div>
   );
 };
