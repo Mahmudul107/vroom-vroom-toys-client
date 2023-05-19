@@ -1,0 +1,59 @@
+[
+  {
+    "name": "Racing Cars",
+    "toys": [
+      {
+        "id": 1,
+        "picture": "https://i.ibb.co/t38b08k/Super-Speed-Racer.png",
+        "name": "Super Speed Racer",
+        "price": 19.99,
+        "rating": 4.5
+      },
+      {
+        "id": 2,
+        "picture": "https://i.ibb.co/S575XXh/Dump-Truck-Master.webp",
+        "name": "Turbo Thunder",
+        "price": 24.99,
+        "rating": 4.2
+      }
+    ]
+  },
+  {
+    "name": "Construction Vehicles",
+    "toys": [
+      {
+        "id": 3,
+        "picture": "https://i.ibb.co/S575XXh/Dump-Truck-Master.webp",
+        "name": "Mighty Bulldozer",
+        "price": 29.99,
+        "rating": 4.8
+      },
+      {
+        "id": 4,
+        "picture": "https://i.ibb.co/S575XXh/Dump-Truck-Master.webp",
+        "name": "Dump Truck Master",
+        "price": 34.99,
+        "rating": 4.6
+      }
+    ]
+  },
+  {
+    "name": "Remote Control Cars",
+    "toys": [
+      {
+        "id": 5,
+        "picture": "https://i.ibb.co/k2XRLfB/Speedy-Racer-RC.jpg",
+        "name": "Speedy Racer RC",
+        "price": 39.99,
+        "rating": 4.4
+      },
+      {
+        "id": 6,
+        "picture": "https://i.ibb.co/RhY13np/Drift-King-RC.jpg",
+        "name": "Drift King RC",
+        "price": 49.99,
+        "rating": 4.7
+      }
+    ]
+  }
+]

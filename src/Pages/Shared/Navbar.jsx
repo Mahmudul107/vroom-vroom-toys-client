@@ -35,7 +35,7 @@ const Navbar = () => {
       return (
         <Link
           to="/login"
-          className="bg-red-600 hover:bg-red-400 duration-700 ml-2 text-white font-bold py-2 px-4 rounded-3xl"
+          className="bg-fuchsia-600 hover:bg-red-400 duration-700 ml-2 text-white font-bold py-2 px-4 rounded-3xl"
         >
           Login
         </Link>
