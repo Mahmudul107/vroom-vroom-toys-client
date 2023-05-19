@@ -44,6 +44,15 @@ const Registration = () => {
       setErrors(newErrors);
       return;
     }
+
+    // Check if the user with the same email already exists
+    const existingUser = checkIfUserExists(email);
+
+    if (existingUser) {
+      newErrors.email = "An account with this email already exists";
+      setErrors(newErrors);
+      return;
+    }
   };
 
   // Redirect to login form after registration
@@ -121,17 +130,16 @@ const Registration = () => {
               onChange={(e) => setPassword(e.target.value)}
               required
             />
-            {errors.password && (
-              <span className="text-red-500 text-xs mb-12">
-                {errors.password}
-              </span>
-            )}
+            {errors.email && (
+    <span className="text-red-500 text-xs">{errors.email}</span>
+  )}
             <button
               type="submit"
               className="bg-blue-500 text-white py-3 px-10 rounded-lg shadow-md hover:bg-blue-600 transition-colors duration-300"
             >
               Register
             </button>
+
           </form>
         </div>
       </div>

@@ -6,8 +6,8 @@ import Banner from "./Banner/Banner";
 import { AuthContext } from "../../providers/AuthProviders";
 
 const Login = () => {
-  const { signInUser, googleSign, githubSign } = useContext(AuthContext);
-  const navigate = useNavigate()
+  const { signInUser, googleSign } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -22,12 +22,25 @@ const Login = () => {
       .then((result) => {
         const loggedInUser = result.user;
         console.log(loggedInUser);
-        setError('')
-        navigate('/')
+        setError("");
+        navigate("/");
       })
       .catch((err) => {
         console.error(err);
-        setError('Invalid Email or Password. Please try again.')
+        setError("Invalid Email or Password. Please try again.");
+      });
+  };
+
+  // Google sign in with popup
+  const handleGoogleSignIn = () => {
+    googleSign()
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+        navigate('/');
+      })
+      .catch((error) => {
+        console.log(error.message);
       });
   };
 
@@ -76,7 +89,7 @@ const Login = () => {
             <p className="text-lg">Or sign up using:</p>
             <div className="flex gap-4 justify-center mt-6">
               <button className="bg-red-400 border-none btn-circle flex items-center justify-center">
-                <FaGoogle className="" />
+                <FaGoogle onClick={handleGoogleSignIn} />
               </button>
               <button className="bg-blue-600 border-none btn-circle flex items-center justify-center">
                 <FaGithub />
