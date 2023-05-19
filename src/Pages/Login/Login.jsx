@@ -9,6 +9,7 @@ const Login = () => {
   const [password, setPassword] = useState("");
 
   const handleSubmit = (e) => {
+    e.preventDefault();
     // Add your login logic here
     console.log(email, password);
   };
