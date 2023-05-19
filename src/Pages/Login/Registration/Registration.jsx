@@ -4,28 +4,63 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../../../providers/AuthProviders";
 
 const Registration = () => {
-    const { createUser, updateUserData } = useContext(AuthContext);
+  const { createUser, updateUserData } = useContext(AuthContext);
 
   const [name, setName] = useState("");
   const [photoUrl, setPhotoUrl] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [errors, setErrors] = useState({});
+  const [isRegistered, setIsRegistered] = useState(false); // state for success message
 
   const handleSubmit = (e) => {
     e.preventDefault();
     // Add your login logic here
     console.log(email, password, name, photoUrl);
 
-    createUser( email, password)
-    .then( result => {
+    createUser(email, password)
+      .then((result) => {
         const createdUser = result.user;
-        console.log(createdUser)
-
-    })
-    .catch(err => {
+        console.log(createdUser);
+        updateUserData(result.user, name, photoUrl);
+        setIsRegistered(true); // set isRegistered to true if registration is successful
+      })
+      .catch((err) => {
         console.error(err);
-    })
+      });
+
+    const newErrors = {};
+    if (password.length < 6) {
+      newErrors.password = "Password must be at least 6 characters";
+    }
+    if (!email) {
+      newErrors.email = "Email cannot be empty";
+    }
+    if (!password) {
+      newErrors.password = "Password cannot be empty";
+    }
+    // Display errors
+    if (Object.keys(newErrors).length > 0) {
+      setErrors(newErrors);
+      return;
+    }
   };
+
+  // Redirect to login form after registration
+  if (isRegistered) {
+    return (
+      <div className="flex items-center justify-center h-screen bg-gray-100 ">
+        <div className="bg-fuchsia-200 p-6 rounded-lg shadow-lg md:w-1/2 text-center">
+          <h2 className="text-lg font-semibold mb-4">
+            Registration successful!
+          </h2>
+          <Link className="text-red-500 hover:underline font-bold" to="/login">
+            Click here to login
+          </Link>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div>
@@ -73,6 +108,9 @@ const Registration = () => {
               className="w-[500px] p-3 border-2 border-gray-300 rounded-lg"
               required
             />
+            {errors.email && (
+              <span className="text-red-500 text-xs">{errors.email}</span>
+            )}
             <h2 className="text-xl font-semibold">Password</h2>
             <input
               type="password"
@@ -83,6 +121,11 @@ const Registration = () => {
               onChange={(e) => setPassword(e.target.value)}
               required
             />
+            {errors.password && (
+              <span className="text-red-500 text-xs mb-12">
+                {errors.password}
+              </span>
+            )}
             <button
               type="submit"
               className="bg-blue-500 text-white py-3 px-10 rounded-lg shadow-md hover:bg-blue-600 transition-colors duration-300"
