@@ -31,7 +31,9 @@ const ShopCategory = () => {
   const handleViewDetails = () => {
     if (!user) {
       toast.error("You have to log in first to view details");
-     
+      setTimeout(() => {
+        navigate('/login');
+      }, 6500);
      } else {
      }
   };
