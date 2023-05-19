@@ -1,8 +1,49 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import logo from "../../assets/VroomVroom.png";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../providers/AuthProviders";
+import { FaUser } from "react-icons/fa";
 
 const Navbar = () => {
+  const { user, logOutUser } = useContext(AuthContext);
+  const [showMenu, setShowMenu] = useState(false);
+
+  const handleLogout = () => {
+    logOutUser()
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  const renderProfileButton = () => {
+    if (user) {
+      return (
+        <button
+          className="border-none btn-circle duration-500 mr-2"
+          title={user.displayName}
+        >
+          {user?.photoURL ? (
+            <img className="rounded-full" src={user.photoURL} alt="" />
+          ) : (
+            <FaUser />
+          )}
+        </button>
+      );
+    } else {
+      return (
+        <Link
+          to="/login"
+          className="bg-red-600 hover:bg-red-400 duration-700 ml-2 text-white font-bold py-2 px-4 rounded-3xl"
+        >
+          Login
+        </Link>
+      );
+    }
+  };
+
   const navItems = (
     <>
       <li className="hover:text-red-400 hover:underline duration-500 relative">
@@ -71,12 +112,16 @@ const Navbar = () => {
         <div className="navbar-center hidden lg:flex">
           <ul className="menu-horizontal gap-8 px-1">{navItems}</ul>
         </div>
-        <div className="navbar-end">
-          <Link to='login'>
-            <button className="btn duration-500 bg-fuchsia-500 hover:bg-red-400 border-none text-white">
-              Login
-            </button>
-          </Link>
+        <div className="mx-auto flex items-center">
+          {renderProfileButton()}
+          {user && (
+            <Link
+              onClick={handleLogout}
+              className="bg-red-600 hover:bg-red-400 duration-700 ml-2 text-white font-bold py-2 px-4 rounded-3xl"
+            >
+              Logout
+            </Link>
+          )}
         </div>
       </div>
     </div>
