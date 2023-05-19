@@ -1,11 +1,79 @@
-import React from 'react';
+import React, { useState } from "react";
+import { FaGoogle, FaGithub } from "react-icons/fa";
+import { Link } from "react-router-dom";
+
+import Banner from "./Banner/Banner";
 
 const Login = () => {
-    return (
-        <div>
-            <h2>Login Page</h2>
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleSubmit = (e) => {
+    // Add your login logic here
+    console.log(email, password);
+  };
+
+  return (
+    <div>
+      <div className="flex items-center justify-center">
+        <Banner/>
+        <div className="p-6 rounded-lg ">
+          <h2 className="text-3xl font-semibold mb-3 mt-12">Login Here</h2>
+          <h4 className="text-gray-600 font-semibold text-base mb-8">
+            Log In to try our amazing services
+          </h4>
+          <form
+            onSubmit={handleSubmit}
+            className="flex flex-col space-y-4 my-auto "
+          >
+            <h2 className="text-xl font-semibold">Email Address</h2>
+            <input
+              type="email"
+              name="email"
+              placeholder="Enter Your Email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              className="w-[500px] p-3 border-2 border-gray-300 rounded-lg"
+              required
+            />
+            <h2 className="text-xl font-semibold">Password</h2>
+            <input
+              type="password"
+              name="password"
+              placeholder="Enter Password"
+              value={password}
+              className="w-[500px] p-3 border-2 border-gray-300 rounded-lg"
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
+            <button
+              type="submit"
+              className="bg-blue-500 text-white py-3 px-10 rounded-lg shadow-md hover:bg-blue-600 transition-colors duration-300"
+            >
+              Log in
+            </button>
+          </form>
+          <div className="mt-10 text-center">
+            <p className="text-lg">Or sign up using:</p>
+            <div className="flex gap-4 justify-center mt-6">
+              <button className="bg-red-400 border-none btn-circle flex items-center justify-center">
+                <FaGoogle className="" />
+              </button>
+              <button className="bg-blue-600 border-none btn-circle flex items-center justify-center">
+                <FaGithub />
+              </button>
+            </div>
+          </div>
         </div>
-    );
+      </div>
+      <p className="text-lg my-10 font-bold text-center">
+        Already have an account ? please{" "}
+        <Link to="/registration" className="text-red-500 hover:underline font-bold">
+          Register
+        </Link>
+      </p>
+    </div>
+  );
 };
 
 export default Login;

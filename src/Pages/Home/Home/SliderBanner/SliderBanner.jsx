@@ -68,7 +68,7 @@ const SliderBanner = () => {
             <p className="font-serif">
             Spark your imagination and create endless stories with captivating toy car collections that fuel creativity.
             </p>
-            <div className="absolute bottom-12 mb-8">
+            <div className="absolute bottom-20 mb-8">
               <button className="mt-8 text-white bg-fuchsia-500 rounded-md hover:bg-red-600 duration-700 animate-bounce font-bold py-3 px-5">
                 Explore Vroom
               </button>

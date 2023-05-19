@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Rating from "react-rating-stars-component";
 
 const GalleryCards = ({ car }) => {
-  const { name, image, id, price, manufacturer, year } = car;
+  const { name, image, id, price, manufacturer, year, description } = car;
 
   const cardStyle = {
     height: "100%",
@@ -23,8 +23,7 @@ const GalleryCards = ({ car }) => {
       <div
         className={`card card-compact bg-base-100 shadow-xl`}
         style={cardStyle}
-        onMouseEnter={handleMouseEnter}
-        onMouseLeave={handleMouseLeave}
+        
       >
         <figure>
           <img
@@ -34,19 +33,16 @@ const GalleryCards = ({ car }) => {
           />
         </figure>
         <div
-          className={`card-body ${isHovered ? "hover:bg-red-200 duration-700" : ""}`}
+          className={`card-body ${isHovered ? "hover:bg-red-300 duration-700" : ""}`}
+          onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
           
         >
           <h2 className="card-title">{name}</h2>
           <p>
             <span className="font-semibold">Manufacturer:</span> {manufacturer}
           </p>
-          <p>
-            <span className="font-semibold">Year:</span> {year}
-          </p>
-          <p>
-            <span className="font-semibold">Price: </span> ${price}
-          </p>
+          <p><span className="font-semibold">Description:</span> {description}</p>
           <div className="flex">
             <div className="rating">
               <span className="font-semibold">Rating: </span>
@@ -59,7 +55,7 @@ const GalleryCards = ({ car }) => {
               />
               <div>
                 {isHovered && (
-                  <div className="card-actions justify-end -mt-8 -mr-20">
+                  <div className="card-actions justify-end -mt-8 -mr-[150px]">
                     <button className="btn duration-700 bg-fuchsia-500 hover:bg-red-400 border-none text-white">
                       Quick View
                     </button>
