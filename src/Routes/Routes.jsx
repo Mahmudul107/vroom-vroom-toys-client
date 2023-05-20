@@ -10,12 +10,13 @@ import AllToys from "../Pages/Shared/AllToys";
 import MyToys from "../Pages/Shared/MyToys";
 import AddAToy from "../Pages/Shared/AddAToy";
 import ErrorPage from "./PrivateRoute/ErrorPage";
+import ToyDetails from "../Pages/Shared/ToyDetails/ToyDetails";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Main />,
-    errorElement: <ErrorPage/>,
+    errorElement: <ErrorPage />,
     children: [
       {
         path: "/",
@@ -34,24 +35,34 @@ const router = createBrowserRouter([
         element: <Blogs />,
       },
       {
-        path: 'allToys',
+        path: "allToys",
         element: <AllToys />,
-        loader: () => fetch('http://localhost:5000/addToy')
+        loader: () => fetch("http://localhost:5000/addToy"),
       },
       {
-        path: 'myToys',
+        path: "myToys",
         element: <MyToys />,
       },
       {
-        path: 'add-a-toy',
+        path: "add-a-toy",
         element: <AddAToy />,
       },
       {
-        path: "single-toy-details/:id",
-        element: <SingleToyDetails/>,
-        loader: ({params}) => fetch(`http://localhost:5000/cars/${params.id}`)
+        path: "toyDetails/:id",
+        element: (
+          <PrivateRoute>
+            <ToyDetails />
+          </PrivateRoute>
+        ),
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/addToy/${params.id}`),
       },
-      
+      {
+        path: "single-toy-details/:id",
+        element: <SingleToyDetails />,
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/cars/${params.id}`),
+      },
     ],
   },
 ]);

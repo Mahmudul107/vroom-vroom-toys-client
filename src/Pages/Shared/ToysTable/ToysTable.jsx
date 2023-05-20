@@ -1,5 +1,5 @@
-import React from 'react';
-import { useLoaderData } from 'react-router-dom';
+import React from "react";
+import { Link, useLoaderData } from "react-router-dom";
 
 const ToysTable = () => {
   const toys = useLoaderData();
@@ -28,17 +28,25 @@ const ToysTable = () => {
                     </div>
                     <div className="ml-2">
                       <div className="text-lg font-bold">{toy.sellerName}</div>
-                      <div className="text-base opacity-50">{toy.sellerEmail}</div>
+                      <div className="text-base opacity-50">
+                        {toy.sellerEmail}
+                      </div>
                     </div>
                   </div>
-                ) : 'N/A'}
+                ) : (
+                  "N/A"
+                )}
               </td>
               <td className="text-xl px-4 py-2 border">{toy.name}</td>
               <td className="text-xl px-4 py-2 border">{toy.subCategory}</td>
               <td className="text-xl px-4 py-2 border">${toy.price}</td>
               <td className="text-xl px-4 py-2 border">{toy.quantity}</td>
               <td className="text-xl px-4 py-2 border">
-                <button className="btn btn-primary btn-xs">View Details</button>
+                <Link to={`/toyDetails/${toy._id}`}>
+                  <button className="btn btn-primary btn-xs">
+                    View Details
+                  </button>
+                </Link>
               </td>
             </tr>
           ))}
