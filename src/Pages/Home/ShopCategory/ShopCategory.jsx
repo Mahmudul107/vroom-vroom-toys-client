@@ -5,21 +5,20 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { toast } from "react-toastify";
 import { AuthContext } from "../../../providers/AuthProviders";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const ShopCategory = () => {
   const { user } = useContext(AuthContext);
   const [toyCars, setToyCars] = useState([]);
-  
-  const navigate = useNavigate()
+
+  // const navigate = useNavigate();
 
   useEffect(() => {
     const fetchToyCars = async () => {
       try {
-        const response = await fetch("toyCars.json");
+        const response = await fetch("http://localhost:5000/cars");
         const data = await response.json();
         setToyCars(data);
-        
       } catch (error) {
         console.error("Error fetching car data:", error);
       }
@@ -32,10 +31,11 @@ const ShopCategory = () => {
     if (!user) {
       toast.error("You have to log in first to view details");
       setTimeout(() => {
-        navigate('/login');
-      }, 6500);
-     } else {
-     }
+        // navigate("/login");
+      }, 4000);
+    } else {
+
+    }
   };
 
   return (
@@ -62,7 +62,7 @@ const ShopCategory = () => {
               <div className="grid grid-cols-1 md:grid-cols-2 justify-self- items-center p-10 ">
                 {category.toys.map((toy) => (
                   <div
-                    key={toy.id}
+                    key={toy._id}
                     className="max-w-xl rounded overflow-hidden shadow-lg m-4"
                   >
                     <div
@@ -96,12 +96,14 @@ const ShopCategory = () => {
                           </div>
                         </div>
                       </div>
-                      <button
-                        className="text-white transition ease-in-out delay-150 bg-red-400 hover:-translate-y-1 hover:scale-110 hover:bg-fuchsia-500 duration-500 px-5 py-3 rounded-xl w-1/2 mb-6 ml-4"
-                        onClick={handleViewDetails}
-                      >
-                        View Details
-                      </button>
+                      <Link to={'/single-toy-details/'+toy.id}>
+                        <button
+                          className="text-white transition ease-in-out delay-150 bg-blue-400 hover:-translate-y-1 hover:scale-110 hover:bg-fuchsia-500 duration-500 px-5 py-3 rounded-xl w-1/2 mb-6 ml-4"
+                          onClick={() => handleViewDetails(toy._id)}
+                        >
+                          View Details
+                        </button>
+                      </Link>
                     </div>
                   </div>
                 ))}

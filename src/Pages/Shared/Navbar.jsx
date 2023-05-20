@@ -49,20 +49,20 @@ const Navbar = () => {
         <Link to="/">Home</Link>
       </li>
       <li className="hover:text-red-400 hover:underline duration-500 relative">
-        <Link to="/about">All Toys</Link>
+        <Link to="/allToys">All Toys</Link>
       </li>
       {user && (
         <>
           <li className="hover:text-red-400 hover:underline duration-500 relative">
-            <Link to="/services">My Toys</Link>
+            <Link to="/myToys">My Toys</Link>
           </li>
           <li className="hover:text-red-400 hover:underline duration-500 relative">
-            <Link to="/services">Add A Toy</Link>
+            <Link to="/add-a-toy">Add A Toy</Link>
           </li>
         </>
       )}
       <li className="hover:text-red-400 hover:underline duration-500 ease-in relative">
-        <Link to="blogs">Blogs</Link>
+        <Link to="/blogs">Blogs</Link>
       </li>
     </>
   );

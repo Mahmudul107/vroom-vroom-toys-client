@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import { FaGoogle, FaGithub } from "react-icons/fa";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 import Banner from "./Banner/Banner";
 import { AuthContext } from "../../providers/AuthProviders";
@@ -8,6 +8,10 @@ import { AuthContext } from "../../providers/AuthProviders";
 const Login = () => {
   const { signInUser, googleSign } = useContext(AuthContext);
   const navigate = useNavigate();
+  const location = useLocation();
+
+
+  const from = location.state?.from?.pathname || '/';
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
