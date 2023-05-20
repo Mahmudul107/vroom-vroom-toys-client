@@ -22,6 +22,8 @@ const Login = () => {
     // Add your login logic here
     console.log(email, password);
 
+
+
     signInUser(email, password)
       .then((result) => {
         const loggedInUser = result.user;
