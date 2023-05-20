@@ -1,22 +1,20 @@
-import React from 'react';
-import { useLoaderData } from 'react-router-dom';
-import ToysTable from './ToysTable/ToysTable';
+import React from "react";
+import { useLoaderData } from "react-router-dom";
+import ToysTable from "./ToysTable/ToysTable";
 
 const AllToys = () => {
-    const toys = useLoaderData()
+//   const toys = useLoaderData();
 
-
-    return (
-        <div>
-            <h3>All Toys Page</h3>
-            {
-                toys.map(toy => <ToysTable
-                    key={toy._id}
-                    toy={toy}
-                />)
-            }
-        </div>
-    );
+  return (
+    <div>
+      <div className="mt-12">
+        {/* {toys.map((toy) => (
+          <ToysTable key={toy._id} toy={toy} />
+        ))} */}
+        <ToysTable/>
+      </div>
+    </div>
+  );
 };
 
 export default AllToys;
