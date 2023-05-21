@@ -8,7 +8,7 @@ const UpdateToy = () => {
 
 
   const handleUpdateCoffee = (e) => {
-    event.preventDefault();
+    e.preventDefault();
 
     const form = e.target;
     const price = form.price.value;

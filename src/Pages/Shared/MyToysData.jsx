@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 
-const MyToysData = ({ toy }) => {
-    const [toys, setToys] = useState([])
+const MyToysData = ({ toy,userData ,setUserData }) => {
+    // const [toys, setToys] = useState([])
     
 
   const handleDeleteToy = (toyId) => {
@@ -27,8 +27,8 @@ const MyToysData = ({ toy }) => {
             if (data.deletedCount > 0) {
               Swal.fire("Deleted!", "Your Toy has been deleted.", "success");
             }
-            const remaining = toys.filter( t => t._id !== _id );
-            setToys(remaining)
+            // const remaining = toys.filter( t => t._id !== _id );
+            // setToys(remaining)
           });
       }
     });
