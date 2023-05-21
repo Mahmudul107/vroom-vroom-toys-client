@@ -4,30 +4,35 @@ import useTitle from "../../../Hooks/useTitle";
 
 const ToysTable = () => {
   const toys = useLoaderData();
-  const [searchText, setSearchText] = useState("")
-
+  const [searchText, setSearchText] = useState("");
+  const [filteredToys, setFilteredToys] = useState([]);
 
   const handleSearch = () => {
-    useEffect(() => {
-      fetch(`http://localhost:5000//toysSearch/${searchText}`)
-        .then((res) => res.json())
-        .then((data) => {
-          searchText(data);
-        });
-    }, []);
+    const filteredToys = toys.filter((toy) =>
+      toy.toyName.toLowerCase().includes(searchText.toLowerCase())
+    );
+    setFilteredToys(filteredToys);
+    setSearchText("");
   };
+
+  useEffect(() => {
+    setFilteredToys(toys);
+  }, [toys]);
 
   return (
     <div className="overflow-x-auto w-full">
-      <div className="flex justify-center  w-4/5 mx-auto mb-4">
+      <div className="flex justify-center w-4/5 mx-auto mb-4">
         <input
           type="text"
           placeholder="Search..."
           className="w-72 mr-2 px-2 py-1 border rounded"
-          //   value={searchTerm}
+          value={searchText}
           onChange={(e) => setSearchText(e.target.value)}
         />
-        <button onClick={handleSearch} className="btn border-none bg-fuchsia-500 hover:bg-red-500 text-white">
+        <button
+          onClick={handleSearch}
+          className="btn border-none bg-fuchsia-500 hover:bg-red-500 text-white"
+        >
           Search
         </button>
       </div>
@@ -43,7 +48,7 @@ const ToysTable = () => {
           </tr>
         </thead>
         <tbody>
-          {toys.map((toy) => (
+          {(filteredToys.length > 0 ? filteredToys : toys).map((toy) => (
             <tr key={toy._id} className="hover:text-fuchsia-500">
               <td className="px-4 py-2 border">
                 {toy.sellerName ? (
