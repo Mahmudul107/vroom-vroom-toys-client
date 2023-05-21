@@ -1,9 +1,11 @@
 import React from "react";
 import { FaArrowLeft, FaStar } from "react-icons/fa";
 import { Link, useLoaderData } from "react-router-dom";
+import useTitle from "../../../Hooks/useTitle";
 
 const ToyDetails = () => {
   const details = useLoaderData();
+  useTitle('Toy Details');
 
   return (
     <div className="hero min-h-fit my-20">
@@ -25,7 +27,7 @@ const ToyDetails = () => {
           </p>
         </div>
         <div>
-          <h1 className="text-5xl font-bold">{details.subCategory}</h1>
+          <h1 className="text-5xl font-bold">{details.toyName}</h1>
           <p className="py-6 text-lg font-serif">{details.description}</p>
           <p className="text-2xl font-bold font-serif mb-4">
             Seller : {details.sellerName}

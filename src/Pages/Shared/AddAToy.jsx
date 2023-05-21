@@ -1,15 +1,17 @@
 import React, { useContext } from "react";
 import { AuthContext } from "../../providers/AuthProviders";
 import Swal from "sweetalert2";
+import useTitle from "../../Hooks/useTitle";
 
 const AddAToy = () => {
   const { user } = useContext(AuthContext);
+  useTitle('Add Toys')
 
   const handleAddToy = (event) => {
     event.preventDefault();
 
     const form = event.target;
-    const name = form.name.value;
+    const toyName = form.toyName.value;
     const pictureUrl = form.pictureUrl.value;
     const sellerName = form.sellerName.value;
     const sellerEmail = form.sellerEmail.value;
@@ -20,7 +22,7 @@ const AddAToy = () => {
     const description = form.description.value;
 
     const addedToy = {
-      name,
+      toyName,
       description,
       price,
       quantity,
@@ -56,7 +58,7 @@ const AddAToy = () => {
   };
 
   return (
-    <div className="container mx-auto py-8 border-4 my-16">
+    <div className="container max-w-5xl mx-auto py-8 my-16">
       <div className="mb-16">
         <p className="divider"></p>
         <h3 className="text-5xl text-red-400 font-semibold m-10 font-mono text-center">
@@ -64,7 +66,7 @@ const AddAToy = () => {
         </h3>
         <p className="divider"></p>
       </div>
-      <form onSubmit={handleAddToy} className="max-w-6xl mx-auto">
+      <form onSubmit={handleAddToy} className="max-w-6xl mx-auto p-12 rounded-lg shadow-xl">
         <div className="mb-4">
           <label htmlFor="pictureUrl" className="text-gray-500 font-bold">
             Picture URL of the toy:
@@ -82,8 +84,8 @@ const AddAToy = () => {
           </label>
           <input
             type="text"
-            name="name"
-            placeholder="Enter Your name"
+            name="toyName"
+            placeholder="Enter Toy name"
             className="font-mono font-semibold px-4 py-5 border rounded-md w-full"
           />
         </div>

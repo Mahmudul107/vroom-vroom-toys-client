@@ -2,10 +2,12 @@ import React, { useContext, useState } from "react";
 import Banner from "../Banner/Banner";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../providers/AuthProviders";
+import useTitle from "../../../Hooks/useTitle";
 
 const Registration = () => {
   const { createUser, updateUserData } = useContext(AuthContext);
 
+  useTitle('Registration')
   const [name, setName] = useState("");
   const [photoUrl, setPhotoUrl] = useState("");
   const [email, setEmail] = useState("");

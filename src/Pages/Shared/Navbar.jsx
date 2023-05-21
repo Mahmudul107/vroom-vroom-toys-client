@@ -99,9 +99,11 @@ const Navbar = () => {
             <Link to="/" className="normal-case text-xl">
               <img className="w-36 h-36 mt-4" src={logo} alt="" />
             </Link>
-            <h2 className="text-3xl text-red-500 font-bold font-mono -ml-6">
-              VroomVroom
-            </h2>
+            <Link to='/'>
+              <h2 className="text-3xl text-red-500 font-bold font-mono -ml-6">
+                VroomVroom
+              </h2>
+            </Link>
           </div>
         </div>
         <div className="navbar-center hidden lg:flex">
