@@ -38,7 +38,7 @@ const router = createBrowserRouter([
       {
         path: "allToys",
         element: <AllToys />,
-        loader: () => fetch("http://localhost:5000/addToy"),
+        loader: () => fetch("https://vroom-vroom-toys-server.vercel.app/addToy"),
       },
       {
         path: "myToys",
@@ -56,18 +56,18 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/addToy/${params.id}`),
+          fetch(`https://vroom-vroom-toys-server.vercel.app/addToy/${params.id}`),
       },
       {
         path: "single-toy-details/:id",
         element: <SingleToyDetails />,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/cars/${params.id}`),
+          fetch(`https://vroom-vroom-toys-server.vercel.app/cars/${params.id}`),
       },
       {
         path: 'myToys/updateToyDetails/:id',
         element: <UpdateToy/>,
-        loader: ({ params }) => fetch(`http://localhost:5000/updateToy/${params.id}`)
+        loader: ({ params }) => fetch(`https://vroom-vroom-toys-server.vercel.app/updateToy/${params.id}`)
       },
     ],
   },

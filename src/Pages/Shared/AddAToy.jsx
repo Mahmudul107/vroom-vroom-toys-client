@@ -34,10 +34,10 @@ const AddAToy = () => {
       sellerName,
     };
 
-    console.log(addedToy);
+    // console.log(addedToy);
 
     // To the server
-    fetch("http://localhost:5000/addToy", {
+    fetch("https://vroom-vroom-toys-server.vercel.app/addToy", {
       method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(addedToy),
@@ -108,7 +108,7 @@ const AddAToy = () => {
           <input
             type="email"
             name="sellerEmail"
-            defaultValue={user.email}
+            defaultValue={user?.email}
             placeholder="Enter Seller's email"
             className="font-mono font-semibold px-4 py-5 border rounded-md w-full"
           />

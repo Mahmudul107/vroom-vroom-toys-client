@@ -8,13 +8,13 @@ const MyToys = () => {
   const { user } = useContext(AuthContext);
 
   const [userData, setUserData] = useState([]);
-  console.log(userData);
+  // console.log(userData);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/userData/${user?.email}`)
+    fetch(`https://vroom-vroom-toys-server.vercel.app/userData/${user?.email}`)
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+        // console.log(data);
         setUserData(data);
       });
   }, [user]);

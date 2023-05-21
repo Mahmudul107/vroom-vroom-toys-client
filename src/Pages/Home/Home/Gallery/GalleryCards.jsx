@@ -1,10 +1,16 @@
-import React from "react";
+import React, { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const GalleryCards = ({ car }) => {
   const { id, image, name } = car;
 
+  useEffect(() => {
+    AOS.init();
+  }, []);
+
   return (
-    <div className="relative group">
+    <div className="relative group" data-aos="fade-down-right" data-aos-delay="200">
       <div className="w-full h-64">
         <img
           src={image}

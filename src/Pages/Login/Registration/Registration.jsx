@@ -7,7 +7,7 @@ import useTitle from "../../../Hooks/useTitle";
 const Registration = () => {
   const { createUser, updateUserData } = useContext(AuthContext);
 
-  useTitle('Registration')
+  useTitle('Registration');
   const [name, setName] = useState("");
   const [photoUrl, setPhotoUrl] = useState("");
   const [email, setEmail] = useState("");
@@ -16,9 +16,14 @@ const Registration = () => {
   const [isRegistered, setIsRegistered] = useState(false); // state for success message
   const [userExistsError, setUserExistsError] = useState(false); // state for user existence error
 
+  // const checkIfUserExists = (email) => {
+  //   // Your logic to check if the user with the provided email exists
+  //   // Return true if the user exists, false otherwise
+  // };
+
   const handleSubmit = (e) => {
     e.preventDefault();
-  
+
     console.log(email, password, name, photoUrl);
 
     createUser(email, password)
@@ -48,18 +53,18 @@ const Registration = () => {
       return;
     }
 
-    setErrors({});
-    setUserExistsError(false);
+    // setErrors({});
+    // setUserExistsError(false);
 
-    // Check if the user with the same email already exists
-    const existingUser = checkIfUserExists(email);
+    // // Check if the user with the same email already exists
+    // const existingUser = checkIfUserExists(email);
 
-    if (existingUser) {
-      newErrors.email = "An account with this email already exists";
-      setErrors(newErrors);
-      setUserExistsError(true); // Set the userExistsError state to true
-      return;
-    }
+    // if (existingUser) {
+    //   newErrors.email = "An account with this email already exists";
+    //   setErrors(newErrors);
+    //   setUserExistsError(true); // Set the userExistsError state to true
+    //   return;
+    // }
   };
 
   // Redirect to login form after registration

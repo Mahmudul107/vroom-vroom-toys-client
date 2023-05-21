@@ -26,7 +26,7 @@ const Gallery = () => {
   const displayedCars = showAll ? carData : carData.slice(0, 8);
 
   return (
-    <div>
+    <div className="bg-gradient-to-r from-gray-200 via-red-100 mb-10 rounded-xl py-2">
       <h2 className="text-5xl sm:text-5xl md:text-5xl lg:text-56xl font-sans font-bold text-red-500 animate-pulse bg-gradient-to-r bg-clip-text  from-red-200 to-fuchsia-500 opacity-90 text-center my-20 mb-20 divider">
         Vroom Vroom's Gallery
       </h2>

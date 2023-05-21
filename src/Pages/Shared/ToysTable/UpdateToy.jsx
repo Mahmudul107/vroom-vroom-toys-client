@@ -21,9 +21,9 @@ const UpdateToy = () => {
       quantity,
     };
 
-    console.log(UpdatedToy);
+    // console.log(UpdatedToy);
 
-    fetch(`http://localhost:5000/updateToy/${_id}`, {
+    fetch(`https://vroom-vroom-toys-server.vercel.app/updateToy/${_id}`, {
       method: "PUT",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(UpdatedToy),

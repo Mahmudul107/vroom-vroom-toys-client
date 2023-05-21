@@ -11,12 +11,10 @@ const ShopCategory = () => {
   const { user } = useContext(AuthContext);
   const [toyCars, setToyCars] = useState([]);
 
-  // const navigate = useNavigate();
-
   useEffect(() => {
     const fetchToyCars = async () => {
       try {
-        const response = await fetch("http://localhost:5000/cars");
+        const response = await fetch("https://vroom-vroom-toys-server.vercel.app/cars");
         const data = await response.json();
         setToyCars(data);
       } catch (error) {
@@ -27,19 +25,19 @@ const ShopCategory = () => {
     fetchToyCars();
   }, []);
 
-  const handleViewDetails = () => {
+  const handleViewDetails = (toyId) => {
     if (!user) {
       toast.error("You have to log in first to view details");
       setTimeout(() => {
         // navigate("/login");
       }, 4000);
     } else {
-
+      // Handle view details logic here
     }
   };
 
   return (
-    <div className="p-4 max-w-[1400px] mx-auto">
+    <div className="p-4 max-w-[1400px] mx-auto bg-gradient-to-r from-gray-200 via-red-100 mb-10 rounded-xl">
       <h2 className="text-5xl font-bold font-mono mb-20 text-center divider text-red-500">
         Shop By Category Page
       </h2>
@@ -47,9 +45,9 @@ const ShopCategory = () => {
       {toyCars.length > 0 && (
         <Tabs>
           <TabList className="flex justify-center mb-4">
-            {toyCars.slice(0, 3).map((category, index) => (
+            {toyCars.slice(0, 3).map((category) => (
               <Tab
-                key={index}
+                key={category._id}
                 className="text-lg px-4 py-2 mr-2 bg-fuchsia-500 text-white rounded cursor-pointer"
               >
                 {category.name}
@@ -57,12 +55,12 @@ const ShopCategory = () => {
             ))}
           </TabList>
 
-          {toyCars.slice(0, 3).map((category, index) => (
-            <TabPanel key={index}>
+          {toyCars.slice(0, 3).map((category) => (
+            <TabPanel key={category._id}>
               <div className="grid grid-cols-1 md:grid-cols-2 justify-self- items-center p-10 ">
                 {category.toys.map((toy) => (
                   <div
-                    key={toy._id}
+                    key={toy.id}
                     className="max-w-xl rounded overflow-hidden shadow-lg m-4"
                   >
                     <div

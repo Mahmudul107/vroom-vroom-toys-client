@@ -10,7 +10,7 @@ const Home = () => {
     useTitle('Home')
 
     return (
-        <div>
+        <div className='bg-gradient-to-r from-gray-200 via-red-100 p-8'>
             <SliderBanner/>
             <Gallery/>
             <ShopCategory/>

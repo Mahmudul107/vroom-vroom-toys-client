@@ -7,7 +7,7 @@ const MyToysData = ({ toy,userData ,setUserData }) => {
     
 
   const handleDeleteToy = (toyId) => {
-    console.log(toyId);
+    // console.log(toyId);
     Swal.fire({
       title: "Are you sure?",
       text: "You won't be able to revert this!",
@@ -18,7 +18,7 @@ const MyToysData = ({ toy,userData ,setUserData }) => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/deleteToy/${toy._id}`, {
+        fetch(`https://vroom-vroom-toys-server.vercel.app/deleteToy/${toy._id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())

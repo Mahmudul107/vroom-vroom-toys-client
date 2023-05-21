@@ -1,6 +1,10 @@
 import React from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
+
 
 const AboutUs = () => {
+
   return (
     <div className="rounded-lg mb-10">
       <h1 className="text-5xl text-center font-bold font-serif mb-16 text-transparent bg-gradient-to-r from-purple-400 to-red-700 bg-clip-text">

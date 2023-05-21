@@ -2,8 +2,10 @@ import React from "react";
 
 const BrowseOfScale = () => {
   return (
-    <div className="flex flex-col items-center justify-center p-16 max-w-7xl mx-auto rounded-lg bg-gradient-to-r from-gray-200 via-red-200 mb-10">
-      <h1 className="text-4xl font-bold text-white mb-8">Vroom Vroom Toys</h1>
+    <div className="flex flex-col items-center justify-center p-16 max-w-7xl mx-auto rounded-lg bg-gradient-to-r from-gray-200 via-red-100 mb-10">
+      <h2 className="text-5xl font-bold font-mono mb-20 text-center divider text-red-500">
+        To Get More information 
+      </h2>
       <form className="max-w-md w-full bg-white rounded-lg shadow-lg p-6">
         <div className="mb-4">
           <label htmlFor="email" className="block text-gray-700 font-bold mb-2">
