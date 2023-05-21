@@ -5,11 +5,12 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { toast } from "react-toastify";
 import { AuthContext } from "../../../providers/AuthProviders";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const ShopCategory = () => {
   const { user } = useContext(AuthContext);
   const [toyCars, setToyCars] = useState([]);
+  // const navigate = useNavigate()
 
   useEffect(() => {
     const fetchToyCars = async () => {
@@ -28,9 +29,9 @@ const ShopCategory = () => {
   const handleViewDetails = (toyId) => {
     if (!user) {
       toast.error("You have to log in first to view details");
+      // navigate("/login");
       setTimeout(() => {
-        // navigate("/login");
-      }, 4000);
+      }, 8000);
     } else {
       // Handle view details logic here
     }
@@ -38,7 +39,7 @@ const ShopCategory = () => {
 
   return (
     <div className="p-4 max-w-[1400px] mx-auto bg-gradient-to-r from-gray-200 via-red-100 mb-10 rounded-xl">
-      <h2 className="text-5xl font-bold font-mono mb-20 text-center divider text-red-500">
+      <h2 className="text-2xl md:text-5xl lg:text-5xl font-bold font-mono mb-20 text-center divider text-red-500">
         Shop By Category Page
       </h2>
 
@@ -96,7 +97,7 @@ const ShopCategory = () => {
                       </div>
                       <Link to={'/single-toy-details/'+toy.id}>
                         <button
-                          className="text-white transition ease-in-out delay-150 bg-blue-400 hover:-translate-y-1 hover:scale-110 hover:bg-fuchsia-500 duration-500 px-5 py-3 rounded-xl w-1/2 mb-6 ml-4"
+                          className="text-white transition ease-in-out delay-150 bg-fuchsia-400 hover:-translate-y-1 hover:scale-110 hover:bg-red-500 duration-500 px-5 py-3 rounded-xl w-1/2 mb-6 ml-4"
                           onClick={() => handleViewDetails(toy._id)}
                         >
                           View Details

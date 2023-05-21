@@ -29,7 +29,7 @@ const Login = () => {
         const loggedInUser = result.user;
         console.log(loggedInUser);
         setError("");
-        navigate("/");
+        navigate(from, {replace: true});
       })
       .catch((err) => {
         console.error(err);

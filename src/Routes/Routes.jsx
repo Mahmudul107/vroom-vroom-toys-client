@@ -12,6 +12,7 @@ import AddAToy from "../Pages/Shared/AddAToy";
 import ErrorPage from "./PrivateRoute/ErrorPage";
 import ToyDetails from "../Pages/Shared/ToyDetails/ToyDetails";
 import UpdateToy from "../Pages/Shared/ToysTable/UpdateToy";
+import LoadingSpinner from "../providers/LoadingSpinner";
 
 const router = createBrowserRouter([
   {
@@ -38,7 +39,8 @@ const router = createBrowserRouter([
       {
         path: "allToys",
         element: <AllToys />,
-        loader: () => fetch("https://vroom-vroom-toys-server.vercel.app/addToy"),
+        loader: () =>
+          fetch("https://vroom-vroom-toys-server.vercel.app/addToy"),
       },
       {
         path: "myToys",
@@ -56,19 +58,32 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`https://vroom-vroom-toys-server.vercel.app/addToy/${params.id}`),
+          fetch(
+            `https://vroom-vroom-toys-server.vercel.app/addToy/${params.id}`
+          ),
       },
       {
         path: "single-toy-details/:id",
-        element: <SingleToyDetails />,
+        element: (
+          <PrivateRoute>
+            <SingleToyDetails />
+          </PrivateRoute>
+        ),
         loader: ({ params }) =>
           fetch(`https://vroom-vroom-toys-server.vercel.app/cars/${params.id}`),
       },
       {
-        path: 'myToys/updateToyDetails/:id',
-        element: <UpdateToy/>,
-        loader: ({ params }) => fetch(`https://vroom-vroom-toys-server.vercel.app/updateToy/${params.id}`)
+        path: "myToys/updateToyDetails/:id",
+        element: <UpdateToy />,
+        loader: ({ params }) =>
+          fetch(
+            `https://vroom-vroom-toys-server.vercel.app/updateToy/${params.id}`
+          ),
       },
+      {
+        path: '/loading',
+        element: <LoadingSpinner />,
+    }
     ],
   },
 ]);

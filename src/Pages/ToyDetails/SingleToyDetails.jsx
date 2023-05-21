@@ -1,8 +1,13 @@
 import React, { useEffect, useState } from "react";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useLocation } from "react-router-dom";
 
 const SingleToyDetails = () => {
   const singleCar = useLoaderData()
+  const location = useLocation()
+
+
+  
+  const from = location.state?.from?.pathname || '/';
 
 
 

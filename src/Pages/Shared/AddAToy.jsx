@@ -16,7 +16,7 @@ const AddAToy = () => {
     const sellerName = form.sellerName.value;
     const sellerEmail = form.sellerEmail.value;
     const subCategory = form.subCategory.value;
-    const price = form.price.value;
+    const price = parseInt(form.price.value);
     const rating = form.rating.value;
     const quantity = form.quantity.value;
     const description = form.description.value;
@@ -34,7 +34,7 @@ const AddAToy = () => {
       sellerName,
     };
 
-    // console.log(addedToy);
+    console.log(addedToy);
 
     // To the server
     fetch("https://vroom-vroom-toys-server.vercel.app/addToy", {
