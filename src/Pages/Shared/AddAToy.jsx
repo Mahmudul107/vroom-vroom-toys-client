@@ -49,7 +49,7 @@ const AddAToy = () => {
           Swal.fire({
             title: "Success!",
             text: "Toy added successfully",
-            icon: "Success",
+            icon: "success",
             confirmButtonText: "Okay",
           });
           form.reset();
@@ -108,6 +108,7 @@ const AddAToy = () => {
           <input
             type="email"
             name="sellerEmail"
+            defaultValue={user.email}
             placeholder="Enter Seller's email"
             className="font-mono font-semibold px-4 py-5 border rounded-md w-full"
           />

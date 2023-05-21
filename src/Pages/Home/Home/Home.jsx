@@ -3,6 +3,7 @@ import SliderBanner from './SliderBanner/SliderBanner';
 import Gallery from './Gallery/Gallery';
 import ShopCategory from '../ShopCategory/ShopCategory';
 import useTitle from '../../../Hooks/useTitle';
+import BrowseOfScale from '../BrowseOfScale/BrowseOfScale';
 
 const Home = () => {
     useTitle('Home')
@@ -12,6 +13,7 @@ const Home = () => {
             <SliderBanner/>
             <Gallery/>
             <ShopCategory/>
+            <BrowseOfScale/>
         </div>
     );
 };

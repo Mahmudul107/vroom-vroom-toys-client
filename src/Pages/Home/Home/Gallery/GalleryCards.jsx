@@ -1,69 +1,20 @@
-import React, { useState } from "react";
-import Rating from "react-rating-stars-component";
+import React from "react";
 
 const GalleryCards = ({ car }) => {
-  const { name, image, id, price, manufacturer, year, description } = car;
-
-  const cardStyle = {
-    height: "100%",
-  };
-
-  const [isHovered, setIsHovered] = useState(false);
-
-  const handleMouseEnter = () => {
-    setIsHovered(true);
-  };
-
-  const handleMouseLeave = () => {
-    setIsHovered(false);
-  };
+  const { id, image, name } = car;
 
   return (
-    <div className="max-w-xs rounded overflow-hidden shadow-lg m-4">
-      <div
-        className={`card card-compact bg-base-100 shadow-xl`}
-        style={cardStyle}
-        
-      >
-        <figure>
-          <img
-            src={image}
-            alt={name}
-            style={{ objectFit: "cover", height: "100%", width: "100%" }}
-          />
-        </figure>
-        <div
-          className={`card-body ${isHovered ? "hover:bg-red-300 duration-700" : ""}`}
-          onMouseEnter={handleMouseEnter}
-        onMouseLeave={handleMouseLeave}
-          
-        >
-          <h2 className="card-title">{name}</h2>
-          <p>
-            <span className="font-semibold">Manufacturer:</span> {manufacturer}
-          </p>
-          <p><span className="font-semibold">Description:</span> {description}</p>
-          <div className="flex">
-            <div className="rating">
-              <span className="font-semibold">Rating: </span>
-              <Rating
-                count={5}
-                size={24}
-                activeColor="#ffd700"
-                value={5} // Replace with the actual rating value
-                edit={false}
-              />
-              <div>
-                {isHovered && (
-                  <div className="card-actions justify-end -mt-8 -mr-[150px]">
-                    <button className="btn duration-700 bg-fuchsia-500 hover:bg-red-400 border-none text-white">
-                      Quick View
-                    </button>
-                  </div>
-                )}
-              </div>
-            </div>
-          </div>
+    <div className="relative group">
+      <div className="w-full h-64">
+        <img
+          src={image}
+          alt={name}
+          className="w-full h-full object-cover rounded-lg cursor-pointer transition-transform duration-300 transform-gpu group-hover:scale-110"
+        />
+      </div>
+      <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+        <div className="bg-black bg-opacity-50 py-2 px-4 rounded-lg">
+          <h3 className="text-white text-lg">{name}</h3>
         </div>
       </div>
     </div>
