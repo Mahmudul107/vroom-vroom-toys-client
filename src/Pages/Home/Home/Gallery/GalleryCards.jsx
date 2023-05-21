@@ -10,7 +10,7 @@ const GalleryCards = ({ car }) => {
   }, []);
 
   return (
-    <div className="relative group" data-aos="fade-down-right" data-aos-delay="200">
+    <div className="relative group" data-aos="fade-down-right" data-aos-delay="10">
       <div className="w-full h-64">
         <img
           src={image}
